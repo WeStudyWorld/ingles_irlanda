@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudia Inglés y Trabaja en Dublín · We Study World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ===== VARIABLES ===== */
+:root {
+  --green: #006644;
+  --green-light: #00A86B;
+  --green-pale: #E8F5EF;
+  --navy: #1B2D4F;
+  --amber: #F5A623;
+  --amber-dark: #E09400;
+  --black: #0A0A0A;
+  --white: #FFFFFF;
+  --gray-light: #F4F5F7;
+  --gray: #6B7280;
+  --gray-dark: #374151;
+  --red-promo: #E53E3E;
+  --radius: 16px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family:'Montserrat',sans-serif; color:var(--black); background:var(--white); overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+img { max-width:100%; display:block; }
+
+/* ===== UTILITIES ===== */
+.container { max-width:1120px; margin:0 auto; padding:0 24px; }
+.tag { display:inline-block; background:var(--green-pale); color:var(--green); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:4px 12px; border-radius:20px; }
+.btn { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:50px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:15px; cursor:pointer; border:none; transition:all .25s; }
+.btn-green { background:var(--green); color:#fff; }
+.btn-green:hover { background:var(--green-light); transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,102,68,.3); }
+.btn-amber { background:var(--amber); color:var(--black); }
+.btn-amber:hover { background:var(--amber-dark); transform:translateY(-2px); box-shadow:0 8px 20px rgba(245,166,35,.35); }
+.btn-outline { background:transparent; color:#fff; border:2px solid #fff; }
+.btn-outline:hover { background:#fff; color:var(--black); }
+.section-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--green); margin-bottom:12px; }
+.section-title { font-size:clamp(28px,4vw,42px); font-weight:900; line-height:1.15; color:var(--navy); margin-bottom:16px; }
+.section-sub { font-size:17px; color:var(--gray); line-height:1.7; max-width:600px; }
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal { opacity:0; transform:translateY(36px); transition:opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+.reveal-delay-4 { transition-delay:.4s; }
+
+/* ===== HEADER ===== */
+#header {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(10,10,10,0.95); backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  padding:14px 0; transition:padding .3s;
+}
+#header.scrolled { padding:10px 0; }
+.header-inner { display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:10px; }
+.logo-text { font-size:18px; font-weight:900; color:#fff; letter-spacing:-0.5px; line-height:1; }
+.logo-text span { color:var(--green-light); }
+.logo-sub { font-size:9px; font-weight:600; color:rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase; margin-top:2px; }
+.header-cta { display:flex; align-items:center; gap:12px; }
+.nav-links { display:flex; gap:24px; }
+.nav-links a { color:rgba(255,255,255,0.7); font-size:13px; font-weight:600; letter-spacing:.3px; transition:color .2s; }
+.nav-links a:hover { color:#fff; }
+
+/* ===== HERO ===== */
+#hero {
+  min-height:100vh; position:relative; display:flex; align-items:center;
+  background:linear-gradient(135deg, #0A1628 0%, #1B2D4F 50%, #003D2B 100%);
+  overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1920&q=80');
+  background-size:cover; background-position:center;
+  opacity:0.18;
+}
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(to right, rgba(10,22,40,0.95) 50%, rgba(10,22,40,0.4) 100%); }
+.hero-content { position:relative; z-index:2; padding:120px 0 80px; }
+.hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(0,168,107,0.15); border:1px solid rgba(0,168,107,0.4); color:var(--green-light); font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:6px 16px; border-radius:30px; margin-bottom:28px; }
+.hero-badge i { font-size:10px; }
+.hero-title { font-size:clamp(36px,6vw,72px); font-weight:900; color:#fff; line-height:1.08; margin-bottom:24px; }
+.hero-title .highlight { color:var(--green-light); display:block; }
+.typewriter { border-right:3px solid var(--amber); padding-right:4px; }
+.hero-sub { font-size:18px; color:rgba(255,255,255,0.7); line-height:1.7; margin-bottom:40px; max-width:520px; }
+.hero-ctas { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:60px; }
+.hero-stats { display:flex; gap:40px; flex-wrap:wrap; }
+.stat-item { }
+.stat-num { font-size:32px; font-weight:900; color:#fff; line-height:1; }
+.stat-num span { color:var(--amber); }
+.stat-label { font-size:12px; color:rgba(255,255,255,0.5); font-weight:600; letter-spacing:.5px; margin-top:4px; }
+
+/* ===== WHY DUBLIN ===== */
+#why { padding:100px 0; background:var(--white); }
+.why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; margin-top:60px; }
+.why-card {
+  background:var(--white); border:1.5px solid #E5E7EB; border-radius:var(--radius);
+  padding:32px 28px; transition:all .3s; cursor:default;
+}
+.why-card:hover { border-color:var(--green); box-shadow:var(--shadow); transform:translateY(-4px); }
+.why-icon { width:56px; height:56px; background:var(--green-pale); border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+.why-icon i { font-size:24px; color:var(--green); }
+.why-card h3 { font-size:17px; font-weight:800; color:var(--navy); margin-bottom:10px; }
+.why-card p { font-size:14px; color:var(--gray); line-height:1.65; }
+
+/* ===== BANNER FREE ===== */
+.banner-free {
+  background:var(--black); padding:64px 0;
+  position:relative; overflow:hidden;
+}
+.banner-free::before {
+  content:''; position:absolute; top:-60px; right:-60px;
+  width:300px; height:300px; border-radius:50%;
+  background:rgba(0,168,107,0.08);
+}
+.banner-free-inner { display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+.banner-free-text { }
+.banner-free-text .pre { font-size:12px; font-weight:700; color:var(--green-light); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+.banner-free-text h2 { font-size:clamp(24px,3.5vw,40px); font-weight:900; color:#fff; line-height:1.2; }
+.banner-free-text h2 span { color:var(--green-light); }
+.banner-free-text p { font-size:16px; color:rgba(255,255,255,0.55); margin-top:12px; max-width:480px; }
+.banner-free-badges { display:flex; flex-direction:column; gap:12px; }
+.free-badge { display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:14px 20px; }
+.free-badge i { color:var(--green-light); font-size:18px; width:20px; }
+.free-badge span { font-size:14px; color:rgba(255,255,255,0.85); font-weight:600; }
+
+/* ===== SCHOOLS ===== */
+#schools { padding:100px 0; background:var(--gray-light); }
+.schools-header { text-align:center; margin-bottom:60px; }
+.schools-header .section-sub { margin:0 auto; }
+.schools-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(500px,1fr)); gap:28px; }
+@media(max-width:540px){ .schools-grid { grid-template-columns:1fr; } }
+.school-card {
+  background:#fff; border-radius:20px; overflow:hidden;
+  box-shadow:var(--shadow); transition:transform .3s, box-shadow .3s;
+}
+.school-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.school-card-header { padding:28px 28px 20px; display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+.school-logo-area { display:flex; align-items:center; gap:14px; }
+.school-logo-circle {
+  width:56px; height:56px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+  font-size:18px; font-weight:900; color:#fff; flex-shrink:0;
+}
+.school-name-area h3 { font-size:16px; font-weight:800; color:var(--navy); line-height:1.3; }
+.school-name-area p { font-size:12px; color:var(--gray); margin-top:3px; display:flex; align-items:center; gap:5px; }
+.promo-badge {
+  display:inline-flex; align-items:center; gap:5px;
+  background:#FEF2F2; border:1px solid #FCA5A5; color:var(--red-promo);
+  font-size:11px; font-weight:700; padding:5px 10px; border-radius:20px; white-space:nowrap; flex-shrink:0;
+}
+.promo-badge.orange { background:#FFF7ED; border-color:#FED7AA; color:#C2410C; }
+.school-body { padding:0 28px 28px; }
+.school-program { background:var(--green-pale); border-radius:10px; padding:14px 18px; margin-bottom:20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+.school-program-name { font-size:13px; font-weight:700; color:var(--green); }
+.school-program-meta { display:flex; gap:12px; }
+.school-program-meta span { font-size:12px; color:var(--gray-dark); font-weight:600; display:flex; align-items:center; gap:4px; }
+.school-includes { margin-bottom:20px; }
+.school-includes h4 { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--gray); margin-bottom:10px; }
+.includes-list { display:flex; flex-wrap:wrap; gap:8px; }
+.includes-chip { background:var(--gray-light); color:var(--gray-dark); font-size:12px; font-weight:600; padding:5px 12px; border-radius:20px; display:flex; align-items:center; gap:5px; }
+.includes-chip i { color:var(--green); font-size:10px; }
+.school-selling { margin-bottom:24px; }
+.school-selling h4 { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--gray); margin-bottom:10px; }
+.selling-list { list-style:none; display:flex; flex-direction:column; gap:7px; }
+.selling-list li { font-size:13px; color:var(--gray-dark); display:flex; align-items:flex-start; gap:8px; line-height:1.5; }
+.selling-list li i { color:var(--green); font-size:11px; margin-top:3px; flex-shrink:0; }
+.school-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; border-top:1px solid #E5E7EB; padding-top:20px; }
+.school-price-area { }
+.school-price-area .total-label { font-size:11px; font-weight:600; color:var(--gray); text-transform:uppercase; letter-spacing:.5px; }
+.school-price-area .total-price { font-size:30px; font-weight:900; color:var(--navy); line-height:1; }
+.school-price-area .total-price span { font-size:14px; color:var(--gray); font-weight:500; }
+.school-map-btn { display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:700; color:var(--green); border:1.5px solid var(--green); border-radius:30px; padding:8px 16px; transition:all .2s; }
+.school-map-btn:hover { background:var(--green); color:#fff; }
+
+/* ===== WORK PERMIT ===== */
+#work { padding:100px 0; background:var(--navy); }
+.work-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+@media(max-width:768px){ .work-inner { grid-template-columns:1fr; } }
+.work-left .section-label { color:var(--green-light); }
+.work-left .section-title { color:#fff; }
+.work-left .section-sub { color:rgba(255,255,255,0.6); }
+.work-cards { display:flex; flex-direction:column; gap:16px; margin-top:32px; }
+.work-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:14px; padding:20px 24px; display:flex; align-items:center; gap:20px; }
+.work-card-icon { width:50px; height:50px; border-radius:12px; background:rgba(0,168,107,0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.work-card-icon i { font-size:22px; color:var(--green-light); }
+.work-card-text h4 { font-size:16px; font-weight:800; color:#fff; margin-bottom:4px; }
+.work-card-text p { font-size:13px; color:rgba(255,255,255,0.55); }
+.work-right { }
+.calculator { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:32px; }
+.calculator h3 { font-size:20px; font-weight:800; color:#fff; margin-bottom:8px; }
+.calculator p { font-size:13px; color:rgba(255,255,255,0.5); margin-bottom:24px; }
+.calc-toggle { display:flex; background:rgba(255,255,255,0.06); border-radius:10px; padding:4px; margin-bottom:24px; }
+.calc-toggle button { flex:1; padding:10px; border:none; border-radius:8px; font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; cursor:pointer; transition:all .2s; background:transparent; color:rgba(255,255,255,0.5); }
+.calc-toggle button.active { background:var(--green); color:#fff; }
+.calc-slider-wrap { margin-bottom:20px; }
+.calc-slider-wrap label { display:flex; justify-content:space-between; font-size:13px; font-weight:600; color:rgba(255,255,255,0.7); margin-bottom:10px; }
+.calc-slider-wrap label span { color:var(--amber); font-size:15px; font-weight:800; }
+input[type=range] { width:100%; -webkit-appearance:none; height:6px; border-radius:3px; background:rgba(255,255,255,0.15); outline:none; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--green-light); cursor:pointer; }
+.calc-result { background:rgba(0,168,107,0.12); border:1px solid rgba(0,168,107,0.25); border-radius:12px; padding:20px; text-align:center; }
+.calc-result .result-label { font-size:12px; color:rgba(255,255,255,0.5); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+.calc-result .result-amount { font-size:40px; font-weight:900; color:var(--green-light); line-height:1; }
+.calc-result .result-sub { font-size:13px; color:rgba(255,255,255,0.4); margin-top:6px; }
+.jobs-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:20px; }
+.job-chip { background:rgba(255,255,255,0.06); border-radius:10px; padding:12px 14px; text-align:center; }
+.job-chip .job-name { font-size:12px; font-weight:700; color:#fff; }
+.job-chip .job-wage { font-size:11px; color:var(--amber); font-weight:600; margin-top:3px; }
+
+/* ===== BANNER 2 ===== */
+.banner-two { background:linear-gradient(135deg, var(--green) 0%, #004D32 100%); padding:72px 0; }
+.banner-two-inner { text-align:center; }
+.banner-two-inner h2 { font-size:clamp(26px,4vw,44px); font-weight:900; color:#fff; line-height:1.2; margin-bottom:16px; }
+.banner-two-inner h2 span { color:var(--amber); }
+.banner-two-inner p { font-size:17px; color:rgba(255,255,255,0.75); max-width:540px; margin:0 auto 32px; }
+.banner-two-features { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; margin-bottom:36px; }
+.banner-two-feat { display:flex; align-items:center; gap:8px; color:#fff; font-size:14px; font-weight:600; }
+.banner-two-feat i { color:var(--amber); }
+
+/* ===== VISA SECTION ===== */
+#visa { padding:100px 0; background:var(--white); }
+.visa-header { text-align:center; margin-bottom:60px; }
+.visa-header .section-sub { margin:0 auto; text-align:center; }
+.nationality-selector { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:48px; }
+.nat-btn {
+  display:flex; align-items:center; gap:10px; padding:12px 22px;
+  border:2px solid #E5E7EB; border-radius:50px; background:#fff;
+  font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; cursor:pointer; transition:all .2s;
+  color:var(--gray-dark);
+}
+.nat-btn:hover { border-color:var(--green); color:var(--green); }
+.nat-btn.active { border-color:var(--green); background:var(--green); color:#fff; }
+.nat-btn .flag { font-size:22px; }
+.visa-content { display:none; }
+.visa-content.active { display:block; }
+.visa-type-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 20px; border-radius:30px; font-size:13px; font-weight:700; margin-bottom:32px; }
+.visa-type-badge.green-badge { background:var(--green-pale); color:var(--green); }
+.visa-type-badge.amber-badge { background:#FFF7ED; color:#C2410C; }
+.visa-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; margin-bottom:40px; }
+.visa-step { background:var(--gray-light); border-radius:14px; padding:24px 20px; position:relative; }
+.visa-step-num { width:32px; height:32px; background:var(--navy); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; margin-bottom:14px; }
+.visa-step h4 { font-size:14px; font-weight:800; color:var(--navy); margin-bottom:8px; }
+.visa-step p { font-size:13px; color:var(--gray); line-height:1.6; }
+.visa-docs { background:var(--green-pale); border:1px solid rgba(0,102,68,.15); border-radius:14px; padding:24px; }
+.visa-docs h4 { font-size:15px; font-weight:800; color:var(--green); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+.visa-docs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px; }
+.visa-doc-item { display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--gray-dark); font-weight:500; line-height:1.5; }
+.visa-doc-item i { color:var(--green); font-size:12px; margin-top:3px; flex-shrink:0; }
+.visa-solvencia { background:#FFF7ED; border:1px solid #FED7AA; border-radius:14px; padding:20px 24px; margin-top:20px; display:flex; align-items:flex-start; gap:14px; }
+.visa-solvencia i { color:#C2410C; font-size:22px; margin-top:2px; flex-shrink:0; }
+.visa-solvencia div h4 { font-size:14px; font-weight:800; color:#7C2D12; margin-bottom:6px; }
+.visa-solvencia div p { font-size:13px; color:#92400E; line-height:1.6; }
+
+/* ===== DUBLIN CITY ===== */
+#dublin { padding:100px 0; background:var(--gray-light); }
+.dublin-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+@media(max-width:768px){ .dublin-inner { grid-template-columns:1fr; } }
+.dublin-image-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.dublin-img { border-radius:14px; overflow:hidden; height:180px; }
+.dublin-img img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+.dublin-img:hover img { transform:scale(1.05); }
+.dublin-img.tall { grid-row:span 2; height:100%; min-height:372px; }
+.dublin-stats { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:36px; }
+.dublin-stat { background:#fff; border-radius:12px; padding:18px; text-align:center; }
+.dublin-stat .num { font-size:24px; font-weight:900; color:var(--navy); }
+.dublin-stat .num span { color:var(--green); }
+.dublin-stat .lbl { font-size:12px; color:var(--gray); font-weight:600; margin-top:4px; }
+
+/* ===== HOW TO START ===== */
+#start { padding:100px 0; background:var(--white); }
+.start-header { text-align:center; margin-bottom:60px; }
+.steps-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0; position:relative; }
+.steps-container::before { content:''; position:absolute; top:36px; left:calc(12.5% + 28px); right:calc(12.5% + 28px); height:2px; background:linear-gradient(to right, var(--green), var(--amber)); z-index:0; }
+@media(max-width:768px){ .steps-container::before { display:none; } }
+.step-item { text-align:center; padding:0 20px; position:relative; z-index:1; }
+.step-circle {
+  width:72px; height:72px; border-radius:50%; margin:0 auto 20px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:24px; font-weight:900; transition:transform .3s;
+}
+.step-item:hover .step-circle { transform:scale(1.1); }
+.step-circle.s1 { background:var(--green-pale); color:var(--green); }
+.step-circle.s2 { background:#EFF6FF; color:#1D4ED8; }
+.step-circle.s3 { background:#FFF7ED; color:#C2410C; }
+.step-circle.s4 { background:#FEF3C7; color:#D97706; }
+.step-item h3 { font-size:16px; font-weight:800; color:var(--navy); margin-bottom:10px; }
+.step-item p { font-size:13px; color:var(--gray); line-height:1.65; }
+.promo-lock { background:linear-gradient(135deg, var(--navy) 0%, #0F1E36 100%); border-radius:20px; padding:40px; margin-top:60px; display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
+.promo-lock-icon { width:72px; height:72px; background:rgba(245,166,35,0.15); border-radius:18px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.promo-lock-icon i { font-size:32px; color:var(--amber); }
+.promo-lock-text h3 { font-size:22px; font-weight:900; color:#fff; margin-bottom:8px; }
+.promo-lock-text p { font-size:15px; color:rgba(255,255,255,0.6); line-height:1.6; max-width:540px; }
+.promo-lock-text p strong { color:var(--amber); }
+
+/* ===== FAQ ===== */
+#faq { padding:100px 0; background:var(--gray-light); }
+.faq-header { text-align:center; margin-bottom:60px; }
+.faq-list { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
+.faq-item { background:#fff; border-radius:14px; overflow:hidden; border:1.5px solid transparent; transition:border-color .2s; }
+.faq-item.open { border-color:var(--green); }
+.faq-question { display:flex; align-items:center; justify-content:space-between; padding:20px 24px; cursor:pointer; user-select:none; }
+.faq-question h4 { font-size:15px; font-weight:700; color:var(--navy); line-height:1.4; flex:1; padding-right:16px; }
+.faq-question .faq-icon { width:28px; height:28px; background:var(--green-pale); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform .3s; }
+.faq-question .faq-icon i { color:var(--green); font-size:12px; }
+.faq-item.open .faq-icon { transform:rotate(180deg); background:var(--green); }
+.faq-item.open .faq-icon i { color:#fff; }
+.faq-answer { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+.faq-answer-inner { padding:0 24px 20px; font-size:14px; color:var(--gray); line-height:1.75; }
+
+/* ===== CTA FINAL ===== */
+#cta { padding:100px 0; background:var(--black); position:relative; overflow:hidden; }
+#cta::before { content:''; position:absolute; bottom:-100px; right:-100px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle, rgba(0,102,68,0.2) 0%, transparent 70%); }
+.cta-inner { display:grid; grid-template-columns:1fr auto; gap:60px; align-items:center; }
+@media(max-width:768px){ .cta-inner { grid-template-columns:1fr; } }
+.cta-left .section-label { color:var(--green-light); }
+.cta-left h2 { font-size:clamp(30px,4.5vw,52px); font-weight:900; color:#fff; line-height:1.1; margin-bottom:20px; }
+.cta-left h2 span { color:var(--green-light); }
+.cta-left p { font-size:17px; color:rgba(255,255,255,0.6); line-height:1.7; margin-bottom:36px; max-width:480px; }
+.cta-buttons { display:flex; gap:16px; flex-wrap:wrap; }
+.cta-photo { position:relative; }
+.cta-photo-wrap { width:280px; height:340px; border-radius:24px; overflow:hidden; background:linear-gradient(135deg, var(--green) 0%, var(--navy) 100%); position:relative; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.cta-photo-wrap img { width:100%; height:100%; object-fit:cover; object-position:top; }
+.cta-photo-placeholder { text-align:center; color:#fff; }
+.cta-photo-placeholder .initials { font-size:64px; font-weight:900; opacity:0.8; }
+.cta-photo-placeholder p { font-size:13px; opacity:0.5; margin-top:8px; }
+.cta-tag { position:absolute; bottom:-16px; left:50%; transform:translateX(-50%); background:var(--amber); color:var(--black); font-size:12px; font-weight:800; padding:8px 20px; border-radius:30px; white-space:nowrap; box-shadow:0 4px 16px rgba(245,166,35,0.4); }
+
+/* ===== FOOTER ===== */
+footer { background:#0A0A0A; border-top:1px solid rgba(255,255,255,0.06); padding:40px 0; }
+.footer-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+.footer-logo { font-size:20px; font-weight:900; color:#fff; }
+.footer-logo span { color:var(--green-light); }
+.footer-copy { font-size:12px; color:rgba(255,255,255,0.3); }
+.footer-links { display:flex; gap:20px; }
+.footer-links a { font-size:13px; color:rgba(255,255,255,0.4); font-weight:600; transition:color .2s; }
+.footer-links a:hover { color:var(--green-light); }
+
+/* ===== WHATSAPP FLOAT ===== */
+.wa-float {
+  position:fixed; bottom:28px; right:28px; z-index:999;
+  width:60px; height:60px; border-radius:50%; background:#25D366;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.5); cursor:pointer;
+  animation:waPulse 2.5s infinite; transition:transform .2s;
+  text-decoration:none;
+}
+.wa-float:hover { transform:scale(1.12); }
+.wa-float i { font-size:28px; color:#fff; }
+@keyframes waPulse {
+  0%,100% { box-shadow:0 4px 20px rgba(37,211,102,0.5); }
+  50% { box-shadow:0 4px 30px rgba(37,211,102,0.8), 0 0 0 10px rgba(37,211,102,0.1); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .nav-links { display:none; }
+  .hero-stats { gap:24px; }
+  .schools-grid { grid-template-columns:1fr; }
+  .banner-free-inner { flex-direction:column; }
+  .cta-inner { grid-template-columns:1fr; }
+  .cta-photo-wrap { width:100%; max-width:320px; margin:0 auto; }
+  .header-cta .btn { font-size:13px; padding:11px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/573150744990?text=Hola%20Mike%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20estudiar%20ingl%C3%A9s%20en%20Dubl%C3%ADn%20%F0%9F%87%AE%F0%9F%87%AA" target="_blank" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="container header-inner">
+    <div class="logo">
+      <div>
+        <div class="logo-text">WE <span>STUDY</span> WORLD</div>
+        <div class="logo-sub">Agencia de Educación Internacional</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#why">Dublín</a>
+      <a href="#schools">Escuelas</a>
+      <a href="#work">Trabajo</a>
+      <a href="#visa">Visa</a>
+      <a href="#start">Empezar</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://wa.me/573150744990?text=Hola%20Mike%2C%20quiero%20m%C3%A1s%20info%20sobre%20Dubl%C3%ADn" target="_blank" class="btn btn-green" style="padding:10px 22px;font-size:13px;">
+        <i class="fab fa-whatsapp"></i> Escríbenos
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="hero-badge"><i class="fas fa-circle" style="color:var(--green-light)"></i> Intakes disponibles 2026</div>
+    <h1 class="hero-title">
+      Estudia inglés,<br>trabaja y
+      <span class="highlight"><span id="typewriter" class="typewriter">vive en Dublín</span></span>
+    </h1>
+    <p class="hero-sub">La ciudad perfecta para mejorar tu inglés, ganar experiencia laboral internacional y vivir una aventura que cambiará tu vida.</p>
+    <div class="hero-ctas">
+      <a href="#schools" class="btn btn-amber"><i class="fas fa-graduation-cap"></i> Ver cotizaciones</a>
+      <a href="https://wa.me/573150744990?text=Hola%20Mike%2C%20quiero%20info%20sobre%20Dubl%C3%ADn" target="_blank" class="btn btn-outline"><i class="fab fa-whatsapp"></i> Hablar con un asesor</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">€<span>14.15</span></div>
+        <div class="stat-label">Salario mínimo por hora</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>40</span>hrs</div>
+        <div class="stat-label">Trabajo en verano</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>25</span>sem</div>
+        <div class="stat-label">Duración del programa</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>4</span></div>
+        <div class="stat-label">Escuelas disponibles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY DUBLIN -->
+<section id="why">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">¿Por qué Dublín?</p>
+      <h2 class="section-title">La capital del inglés<br>para latinoamericanos</h2>
+      <p class="section-sub">Dublín combina todo lo que necesitas: inglés nativo, mercado laboral activo, seguridad y una comunidad latinoamericana que ya espera por ti.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon"><i class="fas fa-comments"></i></div>
+        <h3>Inglés nativo todos los días</h3>
+        <p>Irlanda tiene el inglés como idioma oficial. No hay atajos: lo practicarás en el trabajo, en el supermercado y con tus compañeros de piso.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon"><i class="fas fa-briefcase"></i></div>
+        <h3>Derecho a trabajar legal</h3>
+        <p>Con tu Stamp 2 puedes trabajar hasta 20 hrs/semana durante clases y 40 hrs/semana en verano y diciembre. Sin trámites extra.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Una de las ciudades más seguras</h3>
+        <p>Dublín es constantemente rankeada entre las ciudades más seguras de Europa. Ideal para quienes viajan solos por primera vez.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-4">
+        <div class="why-icon"><i class="fas fa-euro-sign"></i></div>
+        <h3>Más accesible que Londres</h3>
+        <p>Misma calidad de inglés a un costo considerablemente menor. El costo de vida en Dublín es hasta un 30% más bajo que en Londres.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon"><i class="fas fa-users"></i></div>
+        <h3>Comunidad latina vibrante</h3>
+        <p>Miles de colombianos, mexicanos, chilenos y peruanos viven en Dublín. No estarás solo, pero sí hablarás inglés todo el tiempo.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon"><i class="fas fa-globe-europe"></i></div>
+        <h3>Puerta a Europa</h3>
+        <p>Desde Dublín puedes explorar toda Europa con vuelos económicos. Fines de semana en Barcelona, París o Ámsterdam son totalmente posibles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER FREE -->
+<div class="banner-free">
+  <div class="container reveal">
+    <div class="banner-free-inner">
+      <div class="banner-free-text">
+        <div class="pre">We Study World</div>
+        <h2>Nuestro acompañamiento<br>es <span>100% gratuito</span></h2>
+        <p>No pagas nada extra por tener un asesor dedicado que te guía desde la elección de la escuela hasta tu llegada a Dublín.</p>
+      </div>
+      <div class="banner-free-badges">
+        <div class="free-badge"><i class="fas fa-check-circle"></i><span>Asesoría personalizada sin costo</span></div>
+        <div class="free-badge"><i class="fas fa-check-circle"></i><span>Acompañamiento en proceso de visa</span></div>
+        <div class="free-badge"><i class="fas fa-check-circle"></i><span>Orientación de llegada y alojamiento</span></div>
+        <div class="free-badge"><i class="fas fa-check-circle"></i><span>Soporte durante toda tu estadía</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCHOOLS -->
+<section id="schools">
+  <div class="container">
+    <div class="schools-header reveal">
+      <p class="section-label">Escuelas disponibles · Marzo 2026</p>
+      <h2 class="section-title">Elige tu escuela en Dublín</h2>
+      <p class="section-sub">4 opciones acreditadas, en el corazón de la ciudad. Todas incluyen permiso de trabajo Stamp 2. Precios válidos este mes.</p>
+    </div>
+    <div class="schools-grid">
+
+      <!-- ERIN COLLEGE -->
+      <div class="school-card reveal reveal-delay-1">
+        <div class="school-card-header">
+          <div class="school-logo-area">
+            <div class="school-logo-circle" style="background:linear-gradient(135deg,#006644,#00A86B)">EC</div>
+            <div class="school-name-area">
+              <h3>Erin College</h3>
+              <p><i class="fas fa-map-marker-alt" style="color:var(--green)"></i> City Centre · Mountjoy Street</p>
+            </div>
+          </div>
+        </div>
+        <div class="school-body">
+          <div class="school-program">
+            <span class="school-program-name"><i class="fas fa-book-open" style="margin-right:6px"></i>General English + TIE Exam Prep</span>
+            <div class="school-program-meta">
+              <span><i class="fas fa-clock"></i> 15 H/W</span>
+              <span><i class="fas fa-calendar"></i> 25 semanas</span>
+            </div>
+          </div>
+          <div class="school-includes">
+            <h4><i class="fas fa-box" style="margin-right:6px"></i>Qué incluye</h4>
+            <div class="includes-list">
+              <span class="includes-chip"><i class="fas fa-check"></i>Seguro estudiantil</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Material didáctico</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Examen TIE incluido</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Seguro médico gubernamental</span>
+            </div>
+          </div>
+          <div class="school-selling">
+            <h4><i class="fas fa-star" style="margin-right:6px"></i>Por qué elegirla</h4>
+            <ul class="selling-list">
+              <li><i class="fas fa-circle"></i> Acreditada por ACELS (Dpto. de Educación de Irlanda)</li>
+              <li><i class="fas fa-circle"></i> Soporte al estudiante en español cuando lo necesitas</li>
+              <li><i class="fas fa-circle"></i> App de aprendizaje exclusiva para practicar en cualquier momento</li>
+              <li><i class="fas fa-circle"></i> Actividades culturales y excursiones incluidas</li>
+              <li><i class="fas fa-circle"></i> Ubicada en el corazón geográfico e histórico de Dublín</li>
+            </ul>
+          </div>
+          <div class="school-footer">
+            <div class="school-price-area">
+              <div class="total-label">Total del programa</div>
+              <div class="total-price">€2,595 <span>EUR</span></div>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+              <a href="https://maps.google.com/?q=Erin+College+Dublin+Mountjoy+Street" target="_blank" class="school-map-btn"><i class="fas fa-map-marker-alt"></i> Ver ubicación</a>
+              <a href="https://wa.me/573150744990?text=Hola%20Mike%2C%20me%20interesa%20Erin%20College%20en%20Dubl%C3%ADn" target="_blank" class="btn btn-green" style="padding:9px 18px;font-size:13px"><i class="fab fa-whatsapp"></i> Consultar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DORSET COLLEGE -->
+      <div class="school-card reveal reveal-delay-2">
+        <div class="school-card-header">
+          <div class="school-logo-area">
+            <div class="school-logo-circle" style="background:linear-gradient(135deg,#1B2D4F,#2D4A7A)">DC</div>
+            <div class="school-name-area">
+              <h3>Dorset College Dublin</h3>
+              <p><i class="fas fa-map-marker-alt" style="color:var(--green)"></i> Dorset Street · Near Mountjoy Square</p>
+            </div>
+          </div>
+        </div>
+        <div class="school-body">
+          <div class="school-program">
+            <span class="school-program-name"><i class="fas fa-plane" style="margin-right:6px"></i>Offshore First Visa Package · General English Morning</span>
+            <div class="school-program-meta">
+              <span><i class="fas fa-clock"></i> 15 H/W</span>
+              <span><i class="fas fa-calendar"></i> 25 semanas</span>
+            </div>
+          </div>
+          <div class="school-includes">
+            <h4><i class="fas fa-box" style="margin-right:6px"></i>Qué incluye</h4>
+            <div class="includes-list">
+              <span class="includes-chip"><i class="fas fa-check"></i>Matrícula</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Material didáctico</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Seguro médico</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Trinity Exam Fee</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>PEL Learner Protection</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Paquete de Visa</span>
+            </div>
+          </div>
+          <div class="school-selling">
+            <h4><i class="fas fa-star" style="margin-right:6px"></i>Por qué elegirla</h4>
+            <ul class="selling-list">
+              <li><i class="fas fa-circle"></i> 40 años de trayectoria y excelencia educativa en Dublín</li>
+              <li><i class="fas fa-circle"></i> Comunidad de +70 nacionalidades en un solo campus</li>
+              <li><i class="fas fa-circle"></i> Acreditada por ACELS y Eaquals (doble certificación)</li>
+              <li><i class="fas fa-circle"></i> Incluye todo el paquete de visa en el precio</li>
+              <li><i class="fas fa-circle"></i> Pathway a programas de educación superior en Irlanda</li>
+            </ul>
+          </div>
+          <div class="school-footer">
+            <div class="school-price-area">
+              <div class="total-label">Total del programa</div>
+              <div class="total-price">€2,890 <span>EUR</span></div>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+              <a href="https://maps.google.com/?q=Dorset+College+Dublin+Dorset+Street" target="_blank" class="school-map-btn"><i class="fas fa-map-marker-alt"></i> Ver ubicación</a>
+              <a href="https://wa.me/573150744990?text=Hola%20Mike%2C%20me%20interesa%20Dorset%20College%20en%20Dubl%C3%ADn" target="_blank" class="btn btn-green" style="padding:9px 18px;font-size:13px"><i class="fab fa-whatsapp"></i> Consultar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CES DUBLIN -->
+      <div class="school-card reveal reveal-delay-3">
+        <div class="school-card-header">
+          <div class="school-logo-area">
+            <div class="school-logo-circle" style="background:linear-gradient(135deg,#D97706,#F59E0B)">CES</div>
+            <div class="school-name-area">
+              <h3>CES Dublin</h3>
+              <p><i class="fas fa-map-marker-alt" style="color:var(--green)"></i> Dame Street · 5 min de Trinity College</p>
+            </div>
+          </div>
+          <div class="promo-badge orange"><i class="fas fa-tag"></i> Promo vence oct 2026</div>
+        </div>
+        <div class="school-body">
+          <div class="school-program">
+            <span class="school-program-name"><i class="fas fa-briefcase" style="margin-right:6px"></i>Study & Work Program</span>
+            <div class="school-program-meta">
+              <span><i class="fas fa-clock"></i> 20 L/W</span>
+              <span><i class="fas fa-calendar"></i> 25 semanas</span>
+            </div>
+          </div>
+          <div class="school-includes">
+            <h4><i class="fas fa-box" style="margin-right:6px"></i>Qué incluye</h4>
+            <div class="includes-list">
+              <span class="includes-chip"><i class="fas fa-check"></i>Matrícula</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Material didáctico</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Examen IELTS oficial</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Seguro de salud</span>
+            </div>
+          </div>
+          <div class="school-selling">
+            <h4><i class="fas fa-star" style="margin-right:6px"></i>Por qué elegirla</h4>
+            <ul class="selling-list">
+              <li><i class="fas fa-circle"></i> Único centro oficial IELTS en la ciudad (examen en la misma escuela)</li>
+              <li><i class="fas fa-circle"></i> Terraza rooftop con BBQ — vida estudiantil de verdad</li>
+              <li><i class="fas fa-circle"></i> Ubicación privilegiada: a pasos de pubs, museos y el río Liffey</li>
+              <li><i class="fas fa-circle"></i> University Pathway: acceso garantizado a +300 universidades en UK e Irlanda</li>
+              <li><i class="fas fa-circle"></i> +40 años de experiencia con estudiantes de todo el mundo</li>
+            </ul>
+          </div>
+          <div style="background:#FFF7ED;border-radius:10px;padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;gap:10px">
+            <i class="fas fa-fire" style="color:#C2410C"></i>
+            <span style="font-size:13px;color:#7C2D12;font-weight:700">Precio sin promo: ~€7,215 · Ahorra más de €3,500 este mes</span>
+          </div>
+          <div class="school-footer">
+            <div class="school-price-area">
+              <div class="total-label">Total con oferta activa</div>
+              <div class="total-price">€3,675 <span>EUR</span></div>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+              <a href="https://maps.google.com/?q=CES+Dublin+Dame+Street" target="_blank" class="school-map-btn"><i class="fas fa-map-marker-alt"></i> Ver ubicación</a>
+              <a href="https://wa.me/573150744990?text=Hola%20Mike%2C%20me%20interesa%20CES%20Dublin" target="_blank" class="btn btn-green" style="padding:9px 18px;font-size:13px"><i class="fab fa-whatsapp"></i> Consultar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENGLISH PATH -->
+      <div class="school-card reveal reveal-delay-4" style="border:2px solid var(--red-promo)">
+        <div class="school-card-header">
+          <div class="school-logo-area">
+            <div class="school-logo-circle" style="background:linear-gradient(135deg,#E53E3E,#FC8181)">EP</div>
+            <div class="school-name-area">
+              <h3>English Path Dublin</h3>
+              <p><i class="fas fa-map-marker-alt" style="color:var(--green)"></i> Dún Laoghaire · Frente al mar</p>
+            </div>
+          </div>
+          <div class="promo-badge"><i class="fas fa-fire"></i> ¡Promo vence este mes!</div>
+        </div>
+        <div class="school-body">
+          <div class="school-program">
+            <span class="school-program-name"><i class="fas fa-briefcase" style="margin-right:6px"></i>Work & Study · Classic Morning English</span>
+            <div class="school-program-meta">
+              <span><i class="fas fa-clock"></i> 20 L/W</span>
+              <span><i class="fas fa-calendar"></i> 25 semanas</span>
+            </div>
+          </div>
+          <div class="school-includes">
+            <h4><i class="fas fa-box" style="margin-right:6px"></i>Qué incluye</h4>
+            <div class="includes-list">
+              <span class="includes-chip"><i class="fas fa-check"></i>Material didáctico</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Matrícula</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Seguro de salud</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>TIE Exam Fee</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>Bank Transfer Fee</span>
+              <span class="includes-chip"><i class="fas fa-check"></i>PEL Learner Protection</span>
+            </div>
+          </div>
+          <div class="school-selling">
+            <h4><i class="fas fa-star" style="margin-right:6px"></i>Por qué elegirla</h4>
+            <ul class="selling-list">
+              <li><i class="fas fa-circle"></i> Campus costero único — estudia frente al mar en Dún Laoghaire</li>
+              <li><i class="fas fa-circle"></i> Ambiente tranquilo y de alta concentración, ideal para mejorar rápido</li>
+              <li><i class="fas fa-circle"></i> Asistencia 24/7 y línea de emergencias para estudiantes</li>
+              <li><i class="fas fa-circle"></i> Actividades grupales regulares para practicar inglés en contexto real</li>
+              <li><i class="fas fa-circle"></i> Documentación completa para soporte en proceso de visa</li>
+            </ul>
+          </div>
+          <div style="background:#FEF2F2;border-radius:10px;padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;gap:10px">
+            <i class="fas fa-exclamation-circle" style="color:var(--red-promo)"></i>
+            <span style="font-size:13px;color:#7F1D1D;font-weight:700">⚠️ Oferta especial vence este mes — precio sin promo: ~€7,155</span>
+          </div>
+          <div class="school-footer">
+            <div class="school-price-area">
+              <div class="total-label">Total con oferta activa</div>
+              <div class="total-price">€4,230 <span>EUR</span></div>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+              <a href="https://maps.google.com/?q=English+Path+Dublin+Dun+Laoghaire" target="_blank" class="school-map-btn"><i class="fas fa-map-marker-alt"></i> Ver ubicación</a>
+              <a href="https://wa.me/573150744990?text=Hola%20Mike%2C%20me%20interesa%20English%20Path%20Dublin" target="_blank" class="btn btn-green" style="padding:9px 18px;font-size:13px"><i class="fab fa-whatsapp"></i> Consultar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WORK PERMIT -->
+<section id="work">
+  <div class="container">
+    <div class="work-inner">
+      <div class="work-left reveal">
+        <p class="section-label">Permiso de Trabajo · Stamp 2</p>
+        <h2 class="section-title" style="color:#fff">Trabaja mientras estudias — completamente legal</h2>
+        <p class="section-sub">Con el Stamp 2 irlandés tienes derecho a trabajar sin necesidad de ningún permiso adicional. Es automático con tu inscripción en la escuela.</p>
+        <div class="work-cards">
+          <div class="work-card">
+            <div class="work-card-icon"><i class="fas fa-calendar-week"></i></div>
+            <div class="work-card-text">
+              <h4>20 hrs/semana durante clases</h4>
+              <p>Mientras estés en período lectivo, puedes trabajar hasta 20 horas semanales sin restricciones.</p>
+            </div>
+          </div>
+          <div class="work-card">
+            <div class="work-card-icon"><i class="fas fa-sun"></i></div>
+            <div class="work-card-text">
+              <h4>40 hrs/semana en verano y fin de año</h4>
+              <p>Junio–Septiembre y 15 Dic–15 Ene: tiempo completo. Período clave para maximizar ahorros.</p>
+            </div>
+          </div>
+          <div class="work-card">
+            <div class="work-card-icon"><i class="fas fa-coins"></i></div>
+            <div class="work-card-text">
+              <h4>€14.15/hora salario mínimo (2026)</h4>
+              <p>El salario mínimo más alto de Irlanda en su historia. Con 20 hrs/sem puedes ganar ~€1,132/mes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="work-right reveal reveal-delay-2">
+        <div class="calculator">
+          <h3>¿Cuánto puedo ganar?</h3>
+          <p>Calcula tu ingreso mensual estimado según la temporada</p>
+          <div class="calc-toggle">
+            <button class="active" onclick="setMode('term')">📚 En clases</button>
+            <button onclick="setMode('vacation')">☀️ Vacaciones</button>
+          </div>
+          <div class="calc-slider-wrap">
+            <label>Horas por semana <span id="hoursLabel">20 hrs</span></label>
+            <input type="range" id="hoursSlider" min="1" max="20" value="20" oninput="calcEarnings()">
+          </div>
+          <div class="calc-slider-wrap">
+            <label>Semanas al mes <span id="weeksLabel">4 semanas</span></label>
+            <input type="range" id="weeksSlider" min="3" max="5" value="4" oninput="calcEarnings()">
+          </div>
+          <div class="calc-result">
+            <div class="result-label">Ingreso mensual estimado</div>
+            <div class="result-amount" id="resultAmount">€1,132</div>
+            <div class="result-sub">Basado en salario mínimo €14.15/hr (2026)</div>
+          </div>
+        </div>
+        <div class="jobs-grid" style="margin-top:20px">
+          <div class="job-chip"><div class="job-name">☕ Cafetería / Café</div><div class="job-wage">€14–17/hr + tips</div></div>
+          <div class="job-chip"><div class="job-name">🛍 Retail / Tiendas</div><div class="job-wage">€14–16/hr</div></div>
+          <div class="job-chip"><div class="job-name">🍽 Restaurantes</div><div class="job-wage">€14–18/hr + tips</div></div>
+          <div class="job-chip"><div class="job-name">🏨 Housekeeping</div><div class="job-wage">€14–16/hr</div></div>
+          <div class="job-chip"><div class="job-name">🚚 Delivery</div><div class="job-wage">€14–20/hr</div></div>
+          <div class="job-chip"><div class="job-name">🏪 Supermercados</div><div class="job-wage">€14–16/hr</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER 2 -->
+<div class="banner-two">
+  <div class="container reveal">
+    <div class="banner-two-inner">
+      <h2>Tu asesor en Dublín está disponible<br><span>en todo momento, sin costo</span></h2>
+      <p>Desde la selección de escuela hasta resolver tus dudas una vez estés en Irlanda. We Study World es tu agencia de confianza en Latinoamérica.</p>
+      <div class="banner-two-features">
+        <div class="banner-two-feat"><i class="fas fa-check"></i> Sin comisiones ocultas</div>
+        <div class="banner-two-feat"><i class="fas fa-check"></i> Atención en español</div>
+        <div class="banner-two-feat"><i class="fas fa-check"></i> Respuesta en menos de 2 horas</div>
+        <div class="banner-two-feat"><i class="fas fa-check"></i> Acompañamiento en proceso de visa</div>
+      </div>
+      <a href="https://wa.me/573150744990?text=Hola%20Mike%2C%20quiero%20m%C3%A1s%20info%20sobre%20Dubl%C3%ADn" target="_blank" class="btn btn-amber"><i class="fab fa-whatsapp"></i> Hablar con Mike ahora</a>
+    </div>
+  </div>
+</div>
+
+<!-- VISA SECTION -->
+<section id="visa">
+  <div class="container">
+    <div class="visa-header reveal">
+      <p class="section-label">Proceso de Visa</p>
+      <h2 class="section-title">¿Necesitas visa para Irlanda?</h2>
+      <p class="section-sub">El proceso varía según tu nacionalidad. Selecciona tu país para ver los pasos exactos que debes seguir.</p>
+    </div>
+    <div class="nationality-selector reveal">
+      <button class="nat-btn active" onclick="showVisa('co')"><span class="flag">🇨🇴</span> Colombia</button>
+      <button class="nat-btn" onclick="showVisa('mx')"><span class="flag">🇲🇽</span> México</button>
+      <button class="nat-btn" onclick="showVisa('cl')"><span class="flag">🇨🇱</span> Chile</button>
+      <button class="nat-btn" onclick="showVisa('pe')"><span class="flag">🇵🇪</span> Perú</button>
+      <button class="nat-btn" onclick="showVisa('ec')"><span class="flag">🇪🇨</span> Ecuador</button>
+    </div>
+
+    <!-- COLOMBIA -->
+    <div class="visa-content active" id="visa-co">
+      <div class="visa-type-badge amber-badge"><i class="fas fa-passport"></i> Requiere visa previa al viaje</div>
+      <div class="visa-steps">
+        <div class="visa-step"><div class="visa-step-num">1</div><h4>Inscribirse en la escuela</h4><p>Elige tu escuela y programa. We Study World gestiona tu carta de aceptación oficial (Letter of Acceptance).</p></div>
+        <div class="visa-step"><div class="visa-step-num">2</div><h4>Solicitar visa de estudio</h4><p>Aplica online a través de VFS Global Services con todos tus documentos. La visa de larga duración (D) cubre programas de 25 semanas.</p></div>
+        <div class="visa-step"><div class="visa-step-num">3</div><h4>Entrevista y espera</h4><p>Agenda tu cita en el centro VFS más cercano. El tiempo de respuesta es de 6–8 semanas aproximadamente.</p></div>
+        <div class="visa-step"><div class="visa-step-num">4</div><h4>Registrarte al llegar (IRP)</h4><p>Al llegar a Dublín debes registrarte con Inmigración para obtener tu IRP (Irish Residence Permit) — costo: €300.</p></div>
+        <div class="visa-step"><div class="visa-step-num">5</div><h4>¡Listo para trabajar!</h4><p>Tu Stamp 2 te da automáticamente derecho a trabajar. No necesitas permiso laboral adicional.</p></div>
+      </div>
+      <div class="visa-docs"><h4><i class="fas fa-folder-open"></i> Documentos requeridos</h4>
+        <div class="visa-docs-grid">
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Pasaporte vigente (mín. 12 meses)</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Letter of Acceptance de la escuela</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Prueba de fondos (extractos bancarios)</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Prueba de alojamiento en Dublín</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Fotografías tamaño carné</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Formulario de solicitud de visa completado</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Comprobante de pago de la matrícula</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Carta de motivación (recomendada)</div>
+        </div>
+      </div>
+      <div class="visa-solvencia"><i class="fas fa-piggy-bank"></i><div><h4>Solvencia económica requerida</h4><p>Debes demostrar acceso a <strong>€833/mes</strong> durante tu estancia. Para 6 meses: mínimo <strong>€4,998</strong> respaldados en cuenta bancaria. El dinero puede ser propio, de padres o patrocinador con carta notariada.</p></div></div>
+    </div>
+
+    <!-- MEXICO -->
+    <div class="visa-content" id="visa-mx">
+      <div class="visa-type-badge green-badge"><i class="fas fa-check-circle"></i> No necesita visa · Proceso al llegar</div>
+      <div class="visa-steps">
+        <div class="visa-step"><div class="visa-step-num">1</div><h4>Inscribirte y preparar documentos</h4><p>We Study World gestiona tu matrícula y carta de aceptación. Prepara tus documentos antes de viajar.</p></div>
+        <div class="visa-step"><div class="visa-step-num">2</div><h4>Viajar a Dublín sin visa</h4><p>Como ciudadano mexicano, entras a Irlanda sin visa turística. En migración declara que vas a estudiar y muestra tu carta de la escuela.</p></div>
+        <div class="visa-step"><div class="visa-step-num">3</div><h4>Registrarte con Inmigración (IRP)</h4><p>Dentro de los primeros 90 días, debes registrarte para obtener tu IRP Card (Stamp 2) — costo: €300. We Study World te guía en este paso.</p></div>
+        <div class="visa-step"><div class="visa-step-num">4</div><h4>¡Listo para estudiar y trabajar!</h4><p>Con tu Stamp 2 activo, puedes trabajar legalmente desde el primer día sin ningún trámite adicional.</p></div>
+      </div>
+      <div class="visa-docs"><h4><i class="fas fa-folder-open"></i> Documentos que debes llevar</h4>
+        <div class="visa-docs-grid">
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Pasaporte vigente (mín. 12 meses)</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Letter of Acceptance de la escuela</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Prueba de fondos suficientes</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Comprobante de alojamiento en Dublín</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Comprobante de pago del curso</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Seguro de viaje (recomendado)</div>
+        </div>
+      </div>
+      <div class="visa-solvencia"><i class="fas fa-piggy-bank"></i><div><h4>Solvencia económica requerida</h4><p>Muestra en migración que tienes acceso a fondos suficientes: se recomienda <strong>€3,000–€5,000</strong> en cuenta bancaria para cubrir los primeros meses hasta conseguir trabajo.</p></div></div>
+    </div>
+
+    <!-- CHILE -->
+    <div class="visa-content" id="visa-cl">
+      <div class="visa-type-badge green-badge"><i class="fas fa-check-circle"></i> No necesita visa · Proceso al llegar</div>
+      <div class="visa-steps">
+        <div class="visa-step"><div class="visa-step-num">1</div><h4>Inscribirte y preparar documentos</h4><p>We Study World gestiona tu matrícula y carta de aceptación. Prepara tus documentos antes de viajar.</p></div>
+        <div class="visa-step"><div class="visa-step-num">2</div><h4>Viajar a Dublín sin visa</h4><p>Como ciudadano chileno entras a Irlanda libremente. Declara en migración que irás a estudiar y presenta tu carta de aceptación.</p></div>
+        <div class="visa-step"><div class="visa-step-num">3</div><h4>Registrarte con Inmigración (IRP)</h4><p>Registra tu Stamp 2 dentro de los primeros 90 días — costo €300. Este permiso habilita automáticamente tu derecho a trabajar.</p></div>
+        <div class="visa-step"><div class="visa-step-num">4</div><h4>¡A estudiar y trabajar!</h4><p>Con tu Stamp 2 registrado puedes trabajar 20 hrs/sem en clases y 40 hrs/sem en verano sin ningún trámite adicional.</p></div>
+      </div>
+      <div class="visa-docs"><h4><i class="fas fa-folder-open"></i> Documentos que debes llevar</h4>
+        <div class="visa-docs-grid">
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Pasaporte vigente (mín. 12 meses)</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Letter of Acceptance de la escuela</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Prueba de fondos suficientes</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Comprobante de alojamiento en Dublín</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Comprobante de pago del curso</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Seguro de viaje (recomendado)</div>
+        </div>
+      </div>
+      <div class="visa-solvencia"><i class="fas fa-piggy-bank"></i><div><h4>Solvencia económica requerida</h4><p>Se recomienda demostrar acceso a <strong>€3,000–€5,000</strong> en cuenta bancaria para los primeros meses antes de conseguir empleo.</p></div></div>
+    </div>
+
+    <!-- PERU -->
+    <div class="visa-content" id="visa-pe">
+      <div class="visa-type-badge amber-badge"><i class="fas fa-passport"></i> Requiere visa previa al viaje</div>
+      <div class="visa-steps">
+        <div class="visa-step"><div class="visa-step-num">1</div><h4>Inscribirse en la escuela</h4><p>Elige tu programa con We Study World. Gestionamos tu carta de aceptación oficial para el trámite de visa.</p></div>
+        <div class="visa-step"><div class="visa-step-num">2</div><h4>Solicitar visa de estudio (D)</h4><p>Aplica online y completa el formulario en el portal de VFS Global para Perú. El proceso puede tardar 6–8 semanas.</p></div>
+        <div class="visa-step"><div class="visa-step-num">3</div><h4>Entrega de documentos</h4><p>Presenta tu expediente completo en el centro VFS de Lima. We Study World te ayuda a preparar cada documento.</p></div>
+        <div class="visa-step"><div class="visa-step-num">4</div><h4>Registro al llegar (IRP)</h4><p>En Dublín regístrate con Inmigración para obtener tu IRP Card (Stamp 2) — costo: €300.</p></div>
+        <div class="visa-step"><div class="visa-step-num">5</div><h4>¡Empiezas a trabajar!</h4><p>Tu Stamp 2 te permite trabajar legalmente desde el primer día de registrado.</p></div>
+      </div>
+      <div class="visa-docs"><h4><i class="fas fa-folder-open"></i> Documentos requeridos</h4>
+        <div class="visa-docs-grid">
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Pasaporte vigente (mín. 12 meses)</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Letter of Acceptance de la escuela</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Prueba de fondos (extractos bancarios)</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Comprobante de alojamiento en Dublín</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Fotografías tamaño carné</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Formulario de solicitud completado</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Comprobante de pago de matrícula</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Carta de motivación (recomendada)</div>
+        </div>
+      </div>
+      <div class="visa-solvencia"><i class="fas fa-piggy-bank"></i><div><h4>Solvencia económica requerida</h4><p>Debes demostrar <strong>€833/mes</strong> durante tu estancia. Para 6 meses: mínimo <strong>€4,998</strong>. El dinero puede estar a nombre de un patrocinador con carta notariada.</p></div></div>
+    </div>
+
+    <!-- ECUADOR -->
+    <div class="visa-content" id="visa-ec">
+      <div class="visa-type-badge amber-badge"><i class="fas fa-passport"></i> Requiere visa previa al viaje</div>
+      <div class="visa-steps">
+        <div class="visa-step"><div class="visa-step-num">1</div><h4>Inscribirse en la escuela</h4><p>Selecciona tu programa y escuela con We Study World. Te entregamos la Letter of Acceptance para iniciar el trámite.</p></div>
+        <div class="visa-step"><div class="visa-step-num">2</div><h4>Solicitar visa de estudio (D)</h4><p>Completa la solicitud online en el portal de VFS Global para Ecuador. La visa de larga duración cubre programas de 25 semanas.</p></div>
+        <div class="visa-step"><div class="visa-step-num">3</div><h4>Presentar documentos</h4><p>Visita el centro VFS en Quito o Guayaquil con tu expediente completo. We Study World te asesora en cada paso.</p></div>
+        <div class="visa-step"><div class="visa-step-num">4</div><h4>Registro en Dublín (IRP)</h4><p>Al llegar, registra tu Stamp 2 con Inmigración — costo €300. Este trámite activa tu derecho a trabajar.</p></div>
+        <div class="visa-step"><div class="visa-step-num">5</div><h4>¡Comienza tu aventura!</h4><p>Con Stamp 2 activo puedes estudiar y trabajar desde el primer día en Dublín.</p></div>
+      </div>
+      <div class="visa-docs"><h4><i class="fas fa-folder-open"></i> Documentos requeridos</h4>
+        <div class="visa-docs-grid">
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Pasaporte vigente (mín. 12 meses)</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Letter of Acceptance de la escuela</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Prueba de fondos (extractos bancarios)</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Comprobante de alojamiento en Dublín</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Fotografías tamaño carné</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Formulario de solicitud completado</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Comprobante de pago de matrícula</div>
+          <div class="visa-doc-item"><i class="fas fa-check-circle"></i> Carta de motivación (recomendada)</div>
+        </div>
+      </div>
+      <div class="visa-solvencia"><i class="fas fa-piggy-bank"></i><div><h4>Solvencia económica requerida</h4><p>Debes demostrar acceso a <strong>€833/mes</strong>. Para 6 meses: mínimo <strong>€4,998</strong> respaldados en cuenta bancaria o con carta de patrocinador.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DUBLIN CITY -->
+<section id="dublin">
+  <div class="container">
+    <div class="dublin-inner">
+      <div class="reveal">
+        <p class="section-label">La ciudad</p>
+        <h2 class="section-title">Dublín, la capital que enamora</h2>
+        <p class="section-sub">Una ciudad pequeña con alma grande. Segura, vibrante y llena de oportunidades para quien llega a crecer.</p>
+        <div class="dublin-stats">
+          <div class="dublin-stat"><div class="num"><span>1.4</span>M</div><div class="lbl">Habitantes en el área metropolitana</div></div>
+          <div class="dublin-stat"><div class="num" style="color:var(--green)"><span style="color:var(--green)">8°</span>C</div><div class="lbl">Temperatura media anual</div></div>
+          <div class="dublin-stat"><div class="num"><span>#2</span></div><div class="lbl">Ciudad más segura de Europa (EIU 2024)</div></div>
+          <div class="dublin-stat"><div class="num"><span>170+</span></div><div class="lbl">Nacionalidades conviven en la ciudad</div></div>
+        </div>
+        <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:flex-start;gap:10px"><i class="fas fa-check-circle" style="color:var(--green);margin-top:3px;flex-shrink:0"></i><span style="font-size:14px;color:var(--gray-dark)"><strong>Transporte público eficiente:</strong> DART, Luas y buses te llevan a toda la ciudad por €2–3.</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px"><i class="fas fa-check-circle" style="color:var(--green);margin-top:3px;flex-shrink:0"></i><span style="font-size:14px;color:var(--gray-dark)"><strong>Cultura y entretenimiento:</strong> Temple Bar, Trinity College, Guinness Storehouse, National Gallery gratis.</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px"><i class="fas fa-check-circle" style="color:var(--green);margin-top:3px;flex-shrink:0"></i><span style="font-size:14px;color:var(--gray-dark)"><strong>Hub tecnológico:</strong> Google, Facebook, Apple y Airbnb tienen oficinas centrales europeas en Dublín.</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px"><i class="fas fa-check-circle" style="color:var(--green);margin-top:3px;flex-shrink:0"></i><span style="font-size:14px;color:var(--gray-dark)"><strong>Costo de alojamiento:</strong> Cuarto compartido desde €600–€900/mes, dependiendo de la zona.</span></div>
+        </div>
+      </div>
+      <div class="dublin-image-grid reveal reveal-delay-2">
+        <div class="dublin-img tall"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600&q=80" alt="Ha'penny Bridge Dublin" loading="lazy"></div>
+        <div class="dublin-img"><img src="https://images.unsplash.com/photo-1549918864-48ac978761a4?w=600&q=80" alt="Dublin city" loading="lazy"></div>
+        <div class="dublin-img"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="Temple Bar Dublin" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO START -->
+<section id="start">
+  <div class="container">
+    <div class="start-header reveal">
+      <p class="section-label">¿Cómo empiezo?</p>
+      <h2 class="section-title">Solo necesitas 3 pasos para<br>asegurar tu lugar</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">El proceso es simple y We Study World te acompaña en cada uno. Puedes empezar hoy y viajar en cualquier momento del 2026.</p>
+    </div>
+    <div class="steps-container">
+      <div class="step-item reveal reveal-delay-1">
+        <div class="step-circle s1"><i class="fas fa-comments"></i></div>
+        <h3>1. Asesoría gratuita</h3>
+        <p>Hablamos contigo para entender tus metas, presupuesto y disponibilidad. Te recomendamos la escuela ideal.</p>
+      </div>
+      <div class="step-item reveal reveal-delay-2">
+        <div class="step-circle s2"><i class="fas fa-passport"></i></div>
+        <h3>2. Copia de pasaporte</h3>
+        <p>Nos envías una copia de tu pasaporte vigente para iniciar el proceso de inscripción con la escuela.</p>
+      </div>
+      <div class="step-item reveal reveal-delay-3">
+        <div class="step-circle s3"><i class="fas fa-file-alt"></i></div>
+        <h3>3. Formularios de inscripción</h3>
+        <p>Completamos juntos los formularios de la escuela elegida. Cada institución tiene su proceso específico — te guiamos.</p>
+      </div>
+      <div class="step-item reveal reveal-delay-4">
+        <div class="step-circle s4"><i class="fas fa-lock"></i></div>
+        <h3>4. Abono de €100 EUR</h3>
+        <p>Con un depósito de solo €100 al curso, tu lugar y precio quedan asegurados para cualquier fecha de inicio en 2026.</p>
+      </div>
+    </div>
+    <div class="promo-lock reveal">
+      <div class="promo-lock-icon"><i class="fas fa-lock"></i></div>
+      <div class="promo-lock-text">
+        <h3>🔒 Asegura la promo hoy, viaja cuando quieras</h3>
+        <p>Con el abono de <strong>€100 EUR</strong>, tu precio y oferta quedan bloqueados — independientemente de tu fecha de inicio. Los programas de <strong>CES Dublin</strong> y <strong>English Path</strong> tienen ofertas que vencen <strong>este mes</strong>. Habla con nosotros hoy para asegurar el mejor precio.</p>
+      </div>
+      <a href="https://wa.me/573150744990?text=Hola%20Mike%2C%20quiero%20asegurar%20mi%20lugar%20en%20Dubl%C3%ADn%20con%20el%20abono%20de%20100%20EUR" target="_blank" class="btn btn-amber" style="flex-shrink:0"><i class="fab fa-whatsapp"></i> Asegurar mi lugar</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <p class="section-label">Preguntas frecuentes</p>
+      <h2 class="section-title">Todo lo que necesitas saber</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>¿Puedo trabajar desde el primer día que llego a Dublín?</h4>
+          <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Técnicamente puedes buscar trabajo al llegar, pero tu permiso formal de trabajo (Stamp 2) se activa después de registrarte con Inmigración y obtener tu IRP Card. Esto suele hacerse dentro de los primeros 30 días. Con tu carta de la escuela ya puedes empezar a aplicar a empleos antes de que te llegue la tarjeta física.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>¿Qué pasa si quiero iniciar en julio o agosto en lugar de junio?</h4>
+          <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Puedes iniciar en cualquier momento del 2026. Al asegurar tu lugar con el abono de €100 este mes, el precio y la promo quedan bloqueados para cuando tú decidas viajar. Solo nos avisas la fecha con suficiente anticipación para coordinar los trámites.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>¿Qué incluye el Stamp 2 exactamente?</h4>
+          <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">El Stamp 2 es el permiso de residencia para estudiantes de inglés en Irlanda. Te permite: (1) residir legalmente en Irlanda durante la duración de tu programa, (2) trabajar hasta 20 hrs/semana en período lectivo y 40 hrs/semana en vacaciones, y (3) acceder al sistema de salud público en casos de emergencia. No necesitas ningún permiso de trabajo adicional.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>¿Puedo quedarme más tiempo en Irlanda después del curso?</h4>
+          <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí. Puedes renovar tu Stamp 2 inscribiéndote en otro programa de inglés hasta por un máximo de 2 años en total. También puedes hacer un pathway a programas de educación superior (college o universidad) en Irlanda si calificas, lo que abre otras opciones de visa de larga duración.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>¿El costo de We Study World está incluido en el precio del curso?</h4>
+          <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí, completamente. We Study World recibe una comisión de las escuelas por cada estudiante que enviamos, lo que significa que para ti el servicio es 100% gratuito. No hay costos adicionales ni cargos ocultos. El precio que ves en la cotización es exactamente lo que pagas.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>¿Puedo viajar sin hablar inglés?</h4>
+          <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">¡Sí! Esa es precisamente la idea. Las escuelas reciben estudiantes de todos los niveles, incluyendo principiantes (A1). En el primer día te hacen un test de nivel y te ubican en el grupo que más se adapta a ti. Además, la comunidad latinoamericana en Dublín es grande y te ayudará en la adaptación inicial.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>¿Cómo consigo alojamiento en Dublín?</h4>
+          <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">We Study World también te asesora en alojamiento. Las opciones más comunes son: (1) Homestay — vivir con una familia irlandesa, incluye habitación y desayuno desde €900/mes; (2) Residencia estudiantil — desde €800/mes; (3) Piso compartido — la opción más económica, desde €600/mes. Te ayudamos a encontrar la mejor opción según tu presupuesto.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-left reveal">
+        <p class="section-label">Hablemos hoy</p>
+        <h2>¿Listo para dar el <span>salto a Dublín</span>?</h2>
+        <p>Cuéntame tu situación y en menos de 2 horas te tengo una recomendación personalizada. Sin compromiso, sin costo. Así funciona We Study World.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/573150744990?text=Hola%20Mike%2C%20me%20interesa%20estudiar%20ingl%C3%A9s%20en%20Dubl%C3%ADn.%20%C2%BFPuedes%20asesorarme%3F" target="_blank" class="btn btn-green" style="font-size:16px;padding:16px 32px"><i class="fab fa-whatsapp"></i> Escríbeme a WhatsApp</a>
+        </div>
+        <p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,0.35)"><i class="fas fa-phone" style="margin-right:6px"></i>+57 315 074 4990 · Respuesta en menos de 2 horas</p>
+      </div>
+      <div class="cta-photo reveal reveal-delay-2">
+        <div class="cta-photo-wrap">
+          <!-- Reemplaza el src con la URL de tu foto si la hosteas -->
+          <div class="cta-photo-placeholder">
+            <div class="initials">MG</div>
+            <p>Mike Guzmán<br>Asesor WSW</p>
+          </div>
+        </div>
+        <div class="cta-tag">Mike · Asesor We Study World</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">WE <span>STUDY</span> WORLD</div>
+    <div class="footer-links">
+      <a href="#why">Dublín</a>
+      <a href="#schools">Escuelas</a>
+      <a href="#work">Trabajo</a>
+      <a href="#visa">Visa</a>
+    </div>
+    <div class="footer-copy">© 2026 We Study World · Agencia de Educación Internacional</div>
+  </div>
+</footer>
+
+<script>
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ===== HEADER SCROLL =====
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== TYPEWRITER =====
+const phrases = ['vive en Dublín', 'trabaja legalmente', 'cambia tu historia', 'mejora tu inglés'];
+let pi = 0, ci = 0, deleting = false;
+const tw = document.getElementById('typewriter');
+function type() {
+  const word = phrases[pi];
+  tw.textContent = deleting ? word.substring(0,ci--) : word.substring(0,ci++);
+  if (!deleting && ci > word.length) { setTimeout(() => deleting = true, 2000); }
+  else if (deleting && ci < 0) { deleting = false; pi = (pi+1)%phrases.length; ci = 0; }
+  setTimeout(type, deleting ? 60 : 100);
+}
+type();
+
+// ===== VISA SELECTOR =====
+function showVisa(country) {
+  document.querySelectorAll('.visa-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.nat-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('visa-'+country).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ===== CALCULATOR =====
+let calcMode = 'term';
+const maxHours = { term: 20, vacation: 40 };
+function setMode(mode) {
+  calcMode = mode;
+  const slider = document.getElementById('hoursSlider');
+  slider.max = maxHours[mode];
+  slider.value = maxHours[mode];
+  document.querySelectorAll('.calc-toggle button').forEach((b,i) => b.classList.toggle('active', (mode==='term'&&i===0)||(mode==='vacation'&&i===1)));
+  calcEarnings();
+}
+function calcEarnings() {
+  const hrs = parseInt(document.getElementById('hoursSlider').value);
+  const wks = parseInt(document.getElementById('weeksSlider').value);
+  const rate = 14.15;
+  document.getElementById('hoursLabel').textContent = hrs + ' hrs';
+  document.getElementById('weeksLabel').textContent = wks + ' semanas';
+  const total = Math.round(hrs * wks * rate);
+  document.getElementById('resultAmount').textContent = '€' + total.toLocaleString('es-CO');
+}
+calcEarnings();
+
+// ===== FAQ =====
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const answer = item.querySelector('.faq-answer');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-answer').style.maxHeight = '0';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
+});
+</script>
+</body>
+</html>
